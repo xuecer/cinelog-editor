@@ -1,0 +1,32 @@
+# CineLog Project Rules
+
+## Tech Stack
+
+- Framework: React (Vite)
+- Language: TypeScript (Strict mode)
+- Styling: Tailwind CSS (v4 compatible)
+- UI Library: Shadcn UI (Radix primitives)
+- Editor Core: Slate.js + Slate React
+
+## Slate.js Specific Guidelines (CRITICAL)
+
+1. **Model-View Separation**: always separate the Element definition (TypeScript interfaces in `types.d.ts`) from the Component logic.
+2. **Rendering Rules**:
+   - Every custom element component MUST spread `{...props.attributes}` on the top-level container.
+   - Every component MUST render `{props.children}`. For Void nodes (like Images/Cards), render children hidden or in a container, but they must exist.
+3. **Immutability**: Never mutate `editor.children` directly. Always use `Transforms` from 'slate'.
+4. **Hooks**: Use `useSlate()` to access the editor context in child components. Use `useSelected()` and `useFocused()` for styling active states.
+
+## Coding Style
+
+- Use Functional Components with `useCallback` and `useMemo` for performance.
+- Use `lucide-react` for icons.
+- Prefer small, isolated plugins (e.g., `withImages`, `withEmbeds`) over a monolithic editor file.
+- When modifying the editor state, always consider the Selection path and potential normalization issues.
+
+## Project Structure
+
+- `src/components/editor`: Core editor logic.
+- `src/components/editor/elements`: Custom components (MovieCard, FilmStrip).
+- `src/components/editor/plugins`: Slate logic plugins (Normalizers, event handlers).
+- `src/lib/utils.ts`: Helper functions.
