@@ -68,32 +68,7 @@
 - 10 种自定义 Element 类型（基础文本、富媒体、影评专业三层）
 - 严格的类型校验确保编辑器状态一致性
 
-## 项目结构
 
-```
-src/
-├── types/                        # TypeScript 类型定义
-│   ├── editor.ts                 # CustomEditor
-│   ├── elements.ts               # 自定义元素类型
-│   ├── text.ts                   # FormattedText
-│   └── index.ts                  # Module Augmentation
-├── lib/
-│   ├── api/                      # 外部 API 封装
-│   │   ├── tmdb.ts              # TMDB 电影 API
-│   │   └── music.ts             # iTunes 音乐 API
-│   ├── constants.ts              # 常量定义
-│   ├── editor-utils.ts           # 编辑器工具函数
-│   └── utils.ts                  # 通用工具
-├── components/
-│   ├── editor/
-│   │   ├── CineLogEditor.tsx    # 主编辑器
-│   │   ├── DraggableBlock.tsx   # 拖拽包装组件
-│   │   ├── elements/            # 自定义元素渲染组件
-│   │   ├── plugins/             # Slate 插件
-│   │   └── toolbar/             # 工具栏组件
-│   └── ui/                       # UI 基础组件（Shadcn）
-└── App.tsx                       # 应用入口
-```
 
 ## 快速开始
 
